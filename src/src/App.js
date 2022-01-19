@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Routes, Route, Link, useRoutes, useLocation, useSearchParams   } from "react-router-dom";
+import { Routes, Route, Link, useRoutes, useLocation, useSearchParams, useParams    } from "react-router-dom";
 import "./App.css";
 
 
@@ -7,17 +7,29 @@ import "./App.css";
 
 
 function App() {
-  let [searchParams, setSearchParams] = useSearchParams();
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
-  //const url = new URL(window.location);
-  console.log(params);
+
   console.log("App reRnders");
   let location = useLocation();
-  console.log(location);
+
+
+console.log(location.pathname);
+
+const homeStyle= (location.pathname==="/")?{backgroundColor:"red"}:{};
+const aboutStyle= (location.pathname==="/about")?{backgroundColor:"red"}:{};
+
+
 
   return (
     <div className="App">
+      <nav>
+        <ul>
+        <Link to="/" style={{...homeStyle}}>Home </Link>
+          <Link to="/about" style={{...aboutStyle}}>About</Link>
+        </ul>
+      </nav>
+
       <h1>Welcome to React Router!</h1>
       <Routes>
         <Route path="/" element={<Home />} />
