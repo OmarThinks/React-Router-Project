@@ -1,16 +1,25 @@
 import * as React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useRoutes } from "react-router-dom";
 import "./App.css";
 
 function App() {
   console.log("App reRnders");
+  
+
+  let element = useRoutes([
+    { path: "/", element: <Home />},
+    { path: "/about", element: <About /> }
+  ]);
+
+  //return element;
+
+  
+  
+  
   return (
     <div className="App">
       <h1>Welcome to React Router!</h1>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-      </Routes>
+      {element}
     </div>
   );
 }
