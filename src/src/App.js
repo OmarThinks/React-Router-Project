@@ -1,8 +1,36 @@
 import React, {useEffect} from "react";
-import { Routes, Route, Link, useRoutes } from "react-router-dom";
+import { Routes, Route, Link, useRoutes, useLocation  } from "react-router-dom";
 import "./App.css";
 
 
+
+
+
+function App() {
+
+  console.log("App reRnders");
+  let location = useLocation();
+  console.log(location);
+
+  return (
+    <div className="App">
+      <h1>Welcome to React Router!</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+/*
 function App() {
   console.log("App reRnders");
   
@@ -23,6 +51,7 @@ function App() {
 
 export default App;
 
+*/
 
 
 
