@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Routes, Route, Link, useRoutes, useLocation  } from "react-router-dom";
+import { Routes, Route, Link, useRoutes, useLocation, useSearchParams   } from "react-router-dom";
 import "./App.css";
 
 
@@ -7,7 +7,11 @@ import "./App.css";
 
 
 function App() {
-
+  let [searchParams, setSearchParams] = useSearchParams();
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+  //const url = new URL(window.location);
+  console.log(params);
   console.log("App reRnders");
   let location = useLocation();
   console.log(location);
