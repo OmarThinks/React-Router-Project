@@ -1,6 +1,7 @@
-import * as React from "react";
+import React, {useEffect} from "react";
 import { Routes, Route, Link, useRoutes } from "react-router-dom";
 import "./App.css";
+
 
 function App() {
   console.log("App reRnders");
@@ -10,11 +11,7 @@ function App() {
     { path: "/", element: <Home />},
     { path: "/about", element: <About /> }
   ]);
-
   //return element;
-
-  
-  
   
   return (
     <div className="App">
@@ -25,6 +22,11 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
 
 function Home() {
   return (
